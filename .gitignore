@@ -1,0 +1,12 @@
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Dev-only verification scratch file
+verify.js
+
+# Build output (none today — site is pure static)
+dist/
+build/
