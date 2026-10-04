@@ -791,23 +791,19 @@
 .hero__visual {
   position: relative;
   aspect-ratio: 4 / 3;
-  background: linear-gradient(135deg, rgba(46, 204, 113, 0.2), rgba(255, 107, 53, 0.15));
   border-radius: var(--radius-xl);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  background: var(--color-primary);
 }
 
-.hero__visual-text {
-  text-align: center;
-  padding: var(--space-6);
-  color: rgba(255, 255, 255, 0.6);
-  font-size: var(--fs-sm);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  font-weight: var(--fw-semibold);
+/* Real photograph fills the frame — cover crops to the box, the gradient
+   ::before wash is suppressed so the image isn't tinted. */
+.hero__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* --------------------------------------------------------------------------
@@ -921,6 +917,19 @@
   font-weight: var(--fw-semibold);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+/* Photo variant: fill the box and crop, drop the flex centering */
+.two-col__visual--photo {
+  overflow: hidden;
+  background: var(--color-bg-alt);
+}
+
+.two-col__visual--photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .two-col__content h2 {
@@ -1182,6 +1191,25 @@
   z-index: 1;
   padding: var(--space-6);
   text-align: center;
+}
+
+/* Photo variant: real image instead of the gradient wash */
+.story-card__visual--photo {
+  background: var(--color-primary);
+}
+
+.story-card__visual--photo::after {
+  content: none;
+}
+
+.story-card__visual--photo img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  object-fit: cover;
+  display: block;
 }
 
 .story-card__body {
