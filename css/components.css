@@ -1045,37 +1045,46 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: var(--space-7);
+  gap: var(--space-6) var(--space-7);
 }
 
 .partner-logo {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  color: var(--color-text-light);
+  gap: var(--space-3);
+  color: var(--color-text-medium);
   font-weight: var(--fw-semibold);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   font-size: var(--fs-sm);
-  opacity: 0.7;
-  transition: opacity var(--transition-fast);
+  opacity: 0.72;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
 }
 
 .partner-logo:hover {
   opacity: 1;
-  color: var(--color-text);
+  transform: translateY(-2px);
 }
 
-.partner-logo__mark {
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius-sm);
-  background-color: var(--color-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-bold);
-  color: var(--color-text-medium);
+/* The uploaded donor marks are square (600x600 / 320x320) PNGs.
+   object-fit: contain keeps the whole lockup visible inside a fixed
+   height box instead of cropping or stretching it. */
+.partner-logo img {
+  width: auto;
+  height: 40px;
+  max-width: 100px;
+  object-fit: contain;
+  object-position: center;
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .partner-logo img {
+    height: 32px;
+    max-width: 80px;
+  }
+  .partners__logos {
+    gap: var(--space-5);
+  }
 }
 
 /* --------------------------------------------------------------------------
