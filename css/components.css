@@ -1239,6 +1239,9 @@
 .story-card__attribution {
   font-size: var(--fs-sm);
   color: var(--color-text-medium);
+  line-height: var(--lh-relaxed);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
 }
 
 .story-card__attribution strong {
